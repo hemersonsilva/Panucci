@@ -6,13 +6,15 @@ import androidx.navigation.compose.NavHost
 
 @Composable
 fun PanucciNavHost(navController: NavHostController) {
-    NavHost(navController = navController,
-        startDestination = AppDestination.Highlight.route,
+    NavHost(
+        navController = navController,
+        startDestination = highlightListRoute,
         builder = {
             highlightListScreen(navController)
             menuScreen(navController)
             drinksScreen(navController)
             productDetailsScreen(navController)
             checkOutScreen(navController)
-        })
+        }
+    )
 }
