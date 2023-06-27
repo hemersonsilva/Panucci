@@ -8,13 +8,10 @@ import androidx.navigation.compose.NavHost
 fun PanucciNavHost(navController: NavHostController) {
     NavHost(
         navController = navController,
-        startDestination = highlightListRoute,
-        builder = {
-            highlightListScreen(navController)
-            menuScreen(navController)
-            drinksScreen(navController)
-            productDetailsScreen(navController)
-            checkOutScreen(navController)
-        }
-    )
+        startDestination = homeGraphRoute
+    ) {
+        homeGraph(navController)
+        productDetailsScreen(navController)
+        checkOutScreen(navController)
+    }
 }
