@@ -10,8 +10,27 @@ fun PanucciNavHost(navController: NavHostController) {
         navController = navController,
         startDestination = homeGraphRoute
     ) {
-        homeGraph(navController)
-        productDetailsScreen(navController)
-        checkOutScreen(navController)
+        homeGraph(
+            onNavigateToCheckout = {
+                navController.navigateToCheckOut()
+            },
+            onNavigateToProductDetails = { product ->
+                navController.navigateToProductDetails(product.id)
+            },
+        )
+        productDetailsScreen(
+            onNavigateToCheckout = {
+                navController.navigateToCheckOut()
+            },
+            onPopBackStack = {
+                navController.navigateUp()
+            },
+        )
+        checkOutScreen(
+            onPopBackStack = {
+                navController.navigateUp()
+            },
+        )
     }
+
 }
